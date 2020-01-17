@@ -1,0 +1,54 @@
+html, body {
+  height: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: Trebuchet MS, Helvetica, Arial, sans-serif;
+}
+
+body {
+  overflow: hidden;
+  background-color: #222;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, .025) 10%, transparent 0),
+  linear-gradient(#222, #000);
+  background-size: .75em 100%, 100% 100%;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper {
+  /*padding-top: 100px;*/
+  position: relative;
+  flex-grow: 1;
+  margin: auto;
+  max-width: 1200px;
+  max-height: 1200px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 2vmin; /*смотрит что меньше ширина или высота*/
+  justify-items: center;
+  align-items: center;
+
+}
+
+img {
+  max-width: 100%;
+  grid-column: span 2; /*если все эллементы одинаковые*/
+  margin-bottom: -50%;
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  transition: all 0.3s;
+  /*transform: perspective(1000px) rotateY(30deg);*/
+
+ /* 7*0 + 1  обращаемся к 8 элементу*/
+
+  &:nth-child(7n+1) {
+    grid-column: 2 / span 2;
+
+  }
+
+  &:hover {
+    transform: scale(2);
+    z-index: 100;
+  }
+}
